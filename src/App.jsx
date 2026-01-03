@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from '../src/page/LoginPage';
-// Future pages
-// import DashboardPage from './pages/DashboardPage/DashboardPage';
+import { Dashboard } from './page/Dashboard';
+
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
 
         {/* Future routes */}
-        {/* <Route path="/dashboard" element={<DashboardPage />} /> */}
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </Router>
   );

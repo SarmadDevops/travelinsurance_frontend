@@ -1,0 +1,180 @@
+/* --- UPDATED FOOTER CSS --- */
+.custom-footer {
+  background-color: #002140;
+  padding: 40px 0 20px 0;
+  color: white;
+  width: 100%;
+  border-top: 2px solid rgba(19, 194, 194, 0.3); 
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-icon-circle {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #13c2c2; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  color: #13c2c2;
+}
+.social-icons-row {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.social-box {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-box:hover {
+  background: #13c2c2; 
+  border-color: #13c2c2;
+  transform: translateY(-5px);
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   RESPONSIVE FOOTER SETTINGS
+   ============================================================ */
+
+/* --- 1. Extra Large Screens (Large Monitors / 1600px+) --- */
+@media (min-width: 1600px) {
+  .footer-content {
+    max-width: 1400px; /* XL screens par width expand kar di */
+    padding: 0 60px;
+  }
+
+  .custom-footer {
+    padding: 60px 0 30px 0; /* Zyada breathing space */
+  }
+
+  .contact-item {
+    font-size: 28px; /* Bada text readable hota hai display par */
+    margin-bottom: 18px;
+  }
+
+  .footer-icon-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .social-box {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .footer-bottom-bar {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+}
+
+/* --- 2. Large Screens (Laptops / 1200px - 1599px) --- */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .footer-content {
+    max-width: 1100px;
+  }
+  .contact-item{
+    font-size:17px;
+  }
+}
+
+/* --- 3. Tablets & Small Laptops (768px - 1199px) --- */
+@media (max-width: 1199px) {
+  .footer-content {
+    max-width: 90%;
+    padding: 0 20px;
+  }
+  
+  /* Agar aapka footer columns mein hai (Grid/Flex), 
+     to yahan hum columns ko adjust kar sakte hain */
+}
+
+/* --- 4. Mobile Devices (Max 767px) --- */
+@media (max-width: 767px) {
+  .custom-footer {
+    padding: 30px 0 15px 0;
+    text-align: center; /* Mobile par centered content achha lagta hai */
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column; /* Content ek ke upar ek aa jayega */
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .contact-item {
+    justify-content: center; /* Icons aur text center mein */
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .social-icons-row {
+    justify-content: center; /* Social buttons center mein */
+    margin: 20px 0;
+    gap: 12px;
+  }
+
+  .social-box {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .footer-bottom-bar {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 11px;
+  }
+}
+
+/* --- 5. Very Small Mobile (Max 400px) --- */
+@media (max-width: 400px) {
+  .footer-icon-circle {
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+  }
+  
+  .contact-item {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,81 @@
+/* GLOBAL SAFETY (IMPORTANT) */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.navbar-header {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: hidden;
+}
+
+/* CONTAINER */
+.navbar-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo-wrap {
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  font-size: 24px;
+  color: #13c2c2;
+}
+
+.logo-text {
+  font-size: 20px;
+  color: #10314a;
+  white-space: nowrap;
+}
+
+/* MENU */
+.navbar-menu {
+  background: transparent !important;
+  border: none !important;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* CHANGE PASSWORD */
+.change-pass-link {
+  color: #13c2c2 !important;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 16px;
+  }
+
+  .navbar-menu {
+    display: none; /* later drawer add kar saktay ho */
+  }
+}

@@ -8,7 +8,8 @@ const LoginPage = () => {
   
   return (
     <div className="login-page-wrapper">
-      <Navbar />
+      <Navbar variant="top" />
+
       {/* Login component ko success handler pass */}
       <Login />
       <Footer/>

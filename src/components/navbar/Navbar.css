@@ -1,36 +1,38 @@
-/* GLOBAL SAFETY (IMPORTANT) */
+/* ================= GLOBAL RESET ================= */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
   width: 100%;
   overflow-x: hidden;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+  background-color: #f8fafc;
 }
 
-/* HEADER */
+/* ================= TOP NAVBAR (Before & After Login) ================= */
 .navbar-header {
   width: 100%;
-  max-width: 100%;
   padding: 0 !important;
   height: 64px !important;
   line-height: 64px !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: #ffffff !important;
+  border-bottom: 2px solid #e2e8f0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  overflow-x: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* CONTAINER */
 .navbar-container {
-  max-width: 1200px;
   width: 100%;
+  max-width: 1600px; /* Thoda wide rakha hai tabs ke liye */
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,43 +41,147 @@ body {
 /* LOGO */
 .logo-wrap {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .logo-icon {
-  font-size: 24px;
-  color: #13c2c2;
+  font-size: 26px;
+  color: #1677ff;
 }
 
 .logo-text {
   font-size: 20px;
-  color: #10314a;
-  white-space: nowrap;
+  color: #0f172a;
+  margin-left: 10px;
+  font-weight: 700 !important;
 }
 
-/* MENU */
+/* TOP MENU STYLING */
 .navbar-menu {
   background: transparent !important;
-  border: none !important;
+  border-bottom: none !important;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
+  flex: 1;
+  min-width: 0; /* Important for flex items */
 }
 
-/* CHANGE PASSWORD */
-.change-pass-link {
-  color: #13c2c2 !important;
+/* MENU ITEM */
+.navbar-menu .ant-menu-item {
+  padding: 0 12px !important; /* Space reduced to fit 8 tabs */
+  font-size: 13px;
   font-weight: 500;
+  color: #475569;
+  transition: all 0.2s ease;
 }
 
-/* RESPONSIVE */
+/* HOVER & ACTIVE */
+.navbar-menu .ant-menu-item:hover {
+  color: #1677ff !important;
+}
+
+.navbar-menu .ant-menu-item-selected {
+  color: #1677ff !important;
+  background: transparent !important;
+}
+
+.navbar-menu .ant-menu-item-selected::after {
+  border-bottom: 3px solid #1677ff !important;
+}
+
+/* Login Button Highlight (If used) */
+.login-btn-tab {
+  background: #1677ff !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  margin-top: 14px !important;
+}
+
+/* ================= SIDE NAVBAR (Dashboard View) ================= */
+.sidebar {
+  min-height: 100vh;
+  background: #0f172a !important;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo {
+  padding: 20px;
+  height: 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-text {
+  color: #ffffff !important;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* SIDEBAR MENU */
+.side-menu-custom {
+  background: transparent !important;
+  border-right: none !important;
+  margin-top: 15px;
+}
+
+.side-menu-custom .ant-menu-item {
+  margin: 4px 12px !important;
+  width: calc(100% - 24px) !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  border-radius: 8px !important;
+  font-size: 14px;
+}
+
+.side-menu-custom .ant-menu-item-selected {
+  background: #1677ff !important;
+  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.2);
+}
+
+/* Danger Item (Logout) */
+.ant-menu-item-danger {
+  color: #ff4d4f !important;
+}
+
+.ant-menu-item-danger:hover {
+  background: rgba(255, 77, 79, 0.1) !important;
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+/* For Tablet and smaller Laptops */
+@media (max-width: 1200px) {
+  .navbar-menu .ant-menu-item {
+    padding: 0 8px !important;
+    font-size: 12px;
+  }
+}
+
+/* For Mobile: Enable Horizontal Scroll for Tabs */
 @media (max-width: 768px) {
   .navbar-container {
-    padding: 0 16px;
+    padding: 0 10px;
+  }
+  
+  .logo-text {
+    display: none; /* Mobile pe sirf icon dikhega */
   }
 
   .navbar-menu {
-    display: none; /* later drawer add kar saktay ho */
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .navbar-menu::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for clean look */
   }
 }

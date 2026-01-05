@@ -5,146 +5,168 @@
   padding: 0;
 }
 
-html,
 body {
-  width: 100%;
-  overflow-x: hidden;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+  font-family: 'Inter', -apple-system, sans-serif;
   background-color: #f8fafc;
+  overflow-x: hidden; /* Screen se bahar ka scroller khatam */
 }
 
-/* ================= TOP NAVBAR (Before & After Login) ================= */
+/* ================= TOP NAVBAR ================= */
 .navbar-header {
   width: 100%;
-  padding: 0 !important;
-  height: 64px !important;
-  line-height: 64px !important;
+  height: 70px !important; 
   background: #ffffff !important;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0 40px !important;
+  display: flex;
+  align-items: center;
 }
 
-/* CONTAINER */
 .navbar-container {
   width: 100%;
-  max-width: 1600px; /* Thoda wide rakha hai tabs ke liye */
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* LOGO */
+/* ================= LOGO SECTION (Fixed Heights) ================= */
 .logo-wrap {
-  flex-shrink: 0;
   display: flex;
   align-items: center;
+  gap: 2px;
   cursor: pointer;
+  flex-shrink: 0; /* Logo ko chota hone se rokne ke liye */
 }
 
-.logo-icon {
-  font-size: 26px;
-  color: #1677ff;
+.brand-icon {
+  height: 90px !important; /* Header 70px hai, toh 48px balanced lagega */
+  width: auto;
+  object-fit: contain;
 }
 
-.logo-text {
-  font-size: 20px;
-  color: #0f172a;
-  margin-left: 10px;
-  font-weight: 700 !important;
+.brand-text {
+  height: 120px !important; /* Text icon se hamesha chota rakhein professional look ke liye */
+  width: auto;
+  object-fit: contain;
 }
 
-/* TOP MENU STYLING */
+/* ================= TOP MENU (No Scroller & Better Underline) ================= */
+.menu-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden; /* Scroller remove karne ke liye */
+}
+
 .navbar-menu {
   background: transparent !important;
   border-bottom: none !important;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  flex: 1;
-  min-width: 0; /* Important for flex items */
+  /* Line height ko header height ke kareeb rakhne se underline control hoti hai */
+  line-height: 68px !important; 
 }
 
-/* MENU ITEM */
 .navbar-menu .ant-menu-item {
-  padding: 0 12px !important; /* Space reduced to fit 8 tabs */
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  color: #475569;
-  transition: all 0.2s ease;
+  color: #64748b !important;
+  padding: 0 16px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
 }
 
-/* HOVER & ACTIVE */
-.navbar-menu .ant-menu-item:hover {
-  color: #1677ff !important;
+/* 🔥 ACTIVE TAB UNDERLINE FIX (OPER KARNE KE LIYE) */
+.navbar-menu .ant-menu-item-selected::after,
+.navbar-menu .ant-menu-item:hover::after {
+  bottom: 10px !important; /* Isko 0 se 15 tak adjust karke underline oper/nechy kar skte hain */
+  border-bottom: 3px solid #1677ff !important;
+  border-radius: 10px;
+  left: 12px !important;
+  right: 12px !important;
 }
 
 .navbar-menu .ant-menu-item-selected {
   color: #1677ff !important;
-  background: transparent !important;
 }
 
-.navbar-menu .ant-menu-item-selected::after {
-  border-bottom: 3px solid #1677ff !important;
+/* Logout Button */
+.logout-item {
+  color: #ef4444 !important;
+  font-weight: 600 !important;
 }
 
-/* Login Button Highlight (If used) */
-.login-btn-tab {
-  background: #1677ff !important;
-  color: #ffffff !important;
-  border-radius: 6px !important;
-  height: 36px !important;
-  line-height: 36px !important;
-  margin-top: 14px !important;
-}
-
-/* ================= SIDE NAVBAR (Dashboard View) ================= */
+/* ================= SIDEBAR ================= */
+/* ================= SIDEBAR ================= */
 .sidebar {
-  min-height: 100vh;
   background: #0f172a !important;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  padding-top: 20px;
+  transition: all 0.3s ease;
 }
 
 .sidebar-logo {
-  padding: 20px;
-  height: 64px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  height: 100px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 }
 
-.sidebar-text {
-  color: #ffffff !important;
-  font-size: 18px;
-  font-weight: 600;
+.sidebar-logo img.brand-icon {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
 }
 
-/* SIDEBAR MENU */
+.sidebar-logo img.brand-text {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* White text */
+}
+
 .side-menu-custom {
   background: transparent !important;
   border-right: none !important;
-  margin-top: 15px;
+  padding: 0 10px;
 }
 
 .side-menu-custom .ant-menu-item {
-  margin: 4px 12px !important;
-  width: calc(100% - 24px) !important;
-  height: 48px !important;
-  line-height: 48px !important;
+  margin: 6px 0 !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  font-size: 15px !important;
+  font-weight: 500;
   border-radius: 8px !important;
-  font-size: 14px;
+  color: #cbd5e1 !important;
+  transition: all 0.2s ease;
+  padding-left: 20px !important;
+}
+
+.side-menu-custom .ant-menu-item:hover {
+  background: rgba(22, 119, 255, 0.2) !important;
+  color: #1677ff !important;
+  box-shadow: 0 2px 8px rgba(22, 119, 255, 0.15);
 }
 
 .side-menu-custom .ant-menu-item-selected {
   background: #1677ff !important;
-  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.2);
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
 }
 
-/* Danger Item (Logout) */
 .ant-menu-item-danger {
   color: #ff4d4f !important;
 }
@@ -153,35 +175,65 @@ body {
   background: rgba(255, 77, 79, 0.1) !important;
 }
 
-/* ================= RESPONSIVE ADJUSTMENTS ================= */
+/* Collapse/Expand Effect */
+.ant-layout-sider-collapsed .sidebar-logo img.brand-text {
+  display: none;
+}
 
-/* For Tablet and smaller Laptops */
+.ant-layout-sider-collapsed .side-menu-custom .ant-menu-item {
+  text-align: center;
+  padding-left: 0 !important;
+}
+
+/* Responsive */
 @media (max-width: 1200px) {
-  .navbar-menu .ant-menu-item {
-    padding: 0 8px !important;
-    font-size: 12px;
+  .sidebar {
+    width: 220px !important;
+  }
+  .sidebar-logo {
+    height: 80px;
+  }
+  .side-menu-custom .ant-menu-item {
+    font-size: 14px !important;
+    height: 45px !important;
+    line-height: 45px !important;
   }
 }
 
-/* For Mobile: Enable Horizontal Scroll for Tabs */
 @media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 10px;
-  }
-  
-  .logo-text {
-    display: none; /* Mobile pe sirf icon dikhega */
+  .sidebar {
+    position: fixed;
+    z-index: 2000;
+    height: 100vh;
+    left: -280px;
+    transition: all 0.3s ease;
   }
 
-  .navbar-menu {
-    overflow-x: auto;
-    white-space: nowrap;
-    justify-content: flex-start;
-    display: flex;
-    -webkit-overflow-scrolling: touch;
+  .sidebar.show {
+    left: 0;
   }
-  
-  .navbar-menu::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for clean look */
+
+  .sidebar-logo {
+    height: 90px;
+  }
+
+  .side-menu-custom .ant-menu-item {
+    font-size: 15px !important;
+    height: 50px !important;
+    line-height: 50px !important;
+  }
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .brand-text {
+    display: none;
+  }
+  .navbar-header {
+    padding: 0 15px !important;
+  }
+  .navbar-menu {
+    overflow: hidden; /* Mobile pe bhi scroller nahi aayega */
   }
 }
